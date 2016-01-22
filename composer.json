@@ -1,0 +1,30 @@
+{
+    "name": "rhopress/yii2-rhopress",
+    "description": "The Base Components of Rho Press",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","rhopress"],
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "vistart",
+            "email": "i@vistart.name",
+            "homepage": "https://vistart.name",
+            "role": "Founder and Project Leader"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/rhopress/yii2-rhopress/issues?state=open",
+        "chat": "https//gitter.im/rhopress/yii2-rhopress",
+        "source": "https://github.com/rhopress/yii2-rhopress"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": ">=2.0.6",
+        "vistart/yii2-models": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "rhopress\\": ""
+        }
+    }
+}

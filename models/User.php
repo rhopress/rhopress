@@ -24,17 +24,17 @@ class User extends BaseUserModel
 {
 
     /**
-     * @var integer string 
+     * @var integer string
      */
     public $idAttributeType = 0;
 
     /**
-     * @var integer max length 
+     * @var integer max length
      */
     public $idAttributeLength = 32;
 
     /**
-     * @var boolean ID assigned by user. 
+     * @var boolean ID assigned by user.
      */
     public $idPreassigned = true;
 

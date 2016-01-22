@@ -1,0 +1,18 @@
+exclude_paths:
+    - docs/**/*
+    - tests/**/*
+    - gii/**/*
+    
+ratings:
+    paths:
+        - events/**
+        - components/**
+        - models/**
+        - traits/**
+        - queries/**
+        
+engines:
+    phpmd:
+        enabled: true
+    phpcodesniffer:
+        enabled: true

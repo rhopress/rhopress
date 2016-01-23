@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2016-01-23 15:07:17
+-- Generation Time: 2016-01-23 20:06:06
 -- 服务器版本： 5.7.10
 -- PHP Version: 5.6.17
 
@@ -25,10 +25,42 @@ USE `rhopress`;
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `article`
+--
+-- 创建时间： 2016-01-23 10:01:17
+-- 最后更新： 2016-01-23 10:12:07
+--
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `guid` varchar(36) NOT NULL,
+  `user_guid` varchar(36) NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `ip_1` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `ip_2` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `ip_3` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `ip_4` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `ip_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '4',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `comment_status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `content` text NOT NULL,
+  `create_time` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
+  `update_time` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
+  PRIMARY KEY (`guid`),
+  UNIQUE KEY `post_id_unique` (`id`) USING BTREE,
+  UNIQUE KEY `post_name_unique` (`name`) USING BTREE,
+  KEY `user_article_fkey` (`user_guid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `email`
 --
 -- 创建时间： 2016-01-23 04:56:36
--- 最后更新： 2016-01-23 07:04:26
+-- 最后更新： 2016-01-23 10:12:11
 --
 
 DROP TABLE IF EXISTS `email`;
@@ -52,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `email` (
 -- 表的结构 `profile`
 --
 -- 创建时间： 2016-01-23 04:37:36
--- 最后更新： 2016-01-23 07:04:26
+-- 最后更新： 2016-01-23 10:12:11
 --
 
 DROP TABLE IF EXISTS `profile`;
@@ -74,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
 -- 表的结构 `user`
 --
 -- 创建时间： 2016-01-22 14:51:06
--- 最后更新： 2016-01-23 07:04:26
+-- 最后更新： 2016-01-23 10:12:11
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -101,6 +133,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 -- 限制导出的表
 --
+
+--
+-- 限制表 `article`
+--
+ALTER TABLE `article`
+  ADD CONSTRAINT `user_article_fkey` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `email`

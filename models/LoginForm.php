@@ -17,6 +17,7 @@ use rhopress\models\User;
 /**
  * Description of LoginForm
  *
+ * @since 1.0
  * @author vistart <i@vistart.name>
  */
 class LoginForm extends \yii\base\Model
@@ -52,6 +53,20 @@ class LoginForm extends \yii\base\Model
                 $this->addError($attribute, Yii::t('app', 'Incorrect account or password.'));
             }
         }
+    }
+
+    /**
+     * Logs in a user using the provided username and password.
+     *
+     * @return boolean whether the user is logged in successfully
+     */
+    public function login()
+    {
+        $user = $this->getUser();
+        if ($this->validate()) {
+            return Yii::$app->user->login($user, $this->rememberMe ? 3600 * 24 * 30 : 0);
+        }
+        return false;
     }
 
     /**

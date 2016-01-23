@@ -28,7 +28,6 @@ class Email extends \vistart\Models\models\BaseBlameableModel
 
     public $enableIP = false;
     public $contentAttributeRule = 'email';
-    public $confirmationAttribute = false;
 
     const PERMISSION_PUBLIC = 'public';
     const PERMISSION_PRIVATE = 'private';

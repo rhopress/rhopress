@@ -53,6 +53,10 @@
 							rhopress<span></span>
 						</a>
 							<ul>
+					<li>
+						<a href="namespace-rhopress.controllers.html">
+							controllers						</a>
+							</li>
 					<li class="active">
 						<a href="namespace-rhopress.models.html">
 							models						</a>
@@ -65,8 +69,11 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-rhopress.models.Article.html">Article</a></li>
+				<li><a href="class-rhopress.models.ArticleQuery.html">ArticleQuery</a></li>
 				<li><a href="class-rhopress.models.Email.html">Email</a></li>
 				<li><a href="class-rhopress.models.LoginForm.html">LoginForm</a></li>
+				<li><a href="class-rhopress.models.Post.html">Post</a></li>
 				<li><a href="class-rhopress.models.Profile.html">Profile</a></li>
 				<li><a href="class-rhopress.models.RegisterForm.html">RegisterForm</a></li>
 				<li class="active"><a href="class-rhopress.models.User.html">User</a></li>
@@ -123,7 +130,7 @@ vistart\Models\models\BaseUserModel
 				vistart <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;">&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;</a><br>
 				<b>Since:</b>
 				1.0<br>
-			<b>Located at</b> <a href="source-class-rhopress.models.User.html#18-100" title="Go to source code">models/User.php</a>
+			<b>Located at</b> <a href="source-class-rhopress.models.User.html#18-116" title="Go to source code">models/User.php</a>
 		<br>
 	</div>
 
@@ -143,7 +150,7 @@ vistart\Models\models\BaseUserModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getUsername">#</a>
-			<code><a href="source-class-rhopress.models.User.html#45-49" title="Go to source code">getUsername</a>( )</code>
+			<code><a href="source-class-rhopress.models.User.html#46-50" title="Go to source code">getUsername</a>( )</code>
 
 			<div class="description short">
 				
@@ -172,7 +179,7 @@ vistart\Models\models\BaseUserModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setUsername">#</a>
-			<code><a href="source-class-rhopress.models.User.html#51-55" title="Go to source code">setUsername</a>( <span> <var>$username</var></span> )</code>
+			<code><a href="source-class-rhopress.models.User.html#52-56" title="Go to source code">setUsername</a>( <span> <var>$username</var></span> )</code>
 
 			<div class="description short">
 				
@@ -201,7 +208,7 @@ vistart\Models\models\BaseUserModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tableName">#</a>
-			<code><a href="source-class-rhopress.models.User.html#57-63" title="Go to source code">tableName</a>( )</code>
+			<code><a href="source-class-rhopress.models.User.html#58-64" title="Go to source code">tableName</a>( )</code>
 
 			<div class="description short">
 				
@@ -233,7 +240,7 @@ vistart\Models\models\BaseUserModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_attributeLabels">#</a>
-			<code><a href="source-class-rhopress.models.User.html#65-87" title="Go to source code">attributeLabels</a>( )</code>
+			<code><a href="source-class-rhopress.models.User.html#66-88" title="Go to source code">attributeLabels</a>( )</code>
 
 			<div class="description short">
 				
@@ -258,14 +265,14 @@ vistart\Models\models\BaseUserModel
 
 			<td class="attributes"><code>
 				 public 
-				
+				yii\db\ActiveQuery
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getProfile">#</a>
-			<code><a href="source-class-rhopress.models.User.html#89-93" title="Go to source code">getProfile</a>( )</code>
+			<code><a href="source-class-rhopress.models.User.html#90-97" title="Go to source code">getProfile</a>( )</code>
 
 			<div class="description short">
 				
@@ -276,6 +283,10 @@ vistart\Models\models\BaseUserModel
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						yii\db\ActiveQuery
+					</div>
 
 
 
@@ -287,14 +298,14 @@ vistart\Models\models\BaseUserModel
 
 			<td class="attributes"><code>
 				 public 
-				
+				yii\db\ActiveQuery
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getEmails">#</a>
-			<code><a href="source-class-rhopress.models.User.html#95-99" title="Go to source code">getEmails</a>( )</code>
+			<code><a href="source-class-rhopress.models.User.html#99-106" title="Go to source code">getEmails</a>( )</code>
 
 			<div class="description short">
 				
@@ -305,6 +316,43 @@ vistart\Models\models\BaseUserModel
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						yii\db\ActiveQuery
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getArticles" id="_getArticles">
+
+			<td class="attributes"><code>
+				 public 
+				yii\db\ActiveQuery
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getArticles">#</a>
+			<code><a href="source-class-rhopress.models.User.html#108-115" title="Go to source code">getArticles</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						yii\db\ActiveQuery
+					</div>
 
 
 
@@ -335,7 +383,7 @@ vistart\Models\models\BaseUserModel
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.models.User.html#30-33" title="Go to source code"><var>$idAttributeType</var></a>
+					<a href="source-class-rhopress.models.User.html#31-34" title="Go to source code"><var>$idAttributeType</var></a>
 
 				<div class="description short">
 					<p>string</p>
@@ -360,7 +408,7 @@ vistart\Models\models\BaseUserModel
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.models.User.html#35-38" title="Go to source code"><var>$idAttributeLength</var></a>
+					<a href="source-class-rhopress.models.User.html#36-39" title="Go to source code"><var>$idAttributeLength</var></a>
 
 				<div class="description short">
 					<p>max length</p>
@@ -385,7 +433,7 @@ vistart\Models\models\BaseUserModel
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.models.User.html#40-43" title="Go to source code"><var>$idPreassigned</var></a>
+					<a href="source-class-rhopress.models.User.html#41-44" title="Go to source code"><var>$idPreassigned</var></a>
 
 				<div class="description short">
 					<p>ID assigned by user.</p>

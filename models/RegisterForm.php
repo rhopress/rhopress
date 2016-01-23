@@ -12,9 +12,12 @@
 
 namespace rhopress\models;
 
+use Yii;
+
 /**
  * Description of RegisterForm
  *
+ * @since 1.0
  * @author vistart <i@vistart.name>
  */
 class RegisterForm extends \yii\base\Model
@@ -31,14 +34,17 @@ class RegisterForm extends \yii\base\Model
             ['username', 'string', 'min' => 4, 'max' => 32],
             ['email', 'email'],
             ['password', 'string', 'min' => 6, 'max' => 32],
-            ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t('reg', ('The confirm password should be consistent with password.'))],
+            ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t('app', ('The confirm password should be consistent with password.'))],
         ];
     }
 
     public function register()
     {
+        if (!$this->validate()) {
+            return false;
+        }
         $user = new User(['username' => $this->username, 'password' => $this->password]);
-        $profile = $user->create(Profile::className(), ['nickname' => $profile]);
+        $profile = $user->create(Profile::className(), ['nickname' => $this->username]);
         $email = $user->create(Email::className(), ['email' => $this->email]);
         return $user->register([$profile, $email]);
     }

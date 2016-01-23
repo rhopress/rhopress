@@ -68,7 +68,7 @@ class UserTest extends TestCase
         $this->assertTrue($user->deregister());
     }
 
-    private function prepareUser($id = null, $password = null)
+    public static function prepareUser($id = null, $password = null)
     {
         if (empty($id)) {
             $id = 'rhopress';
@@ -84,7 +84,7 @@ class UserTest extends TestCase
      */
     public function testRegisterEmail()
     {
-        $user = $this->prepareUser();
+        $user = self::prepareUser();
         $email = $user->create(Email::className(), ['email' => 'dev@rho.press']);
         $this->assertTrue($user->register([$email]));
         $user = User::find()->id('rhopress')->one();
@@ -102,7 +102,7 @@ class UserTest extends TestCase
      */
     public function testRegisterProfile()
     {
-        $user = $this->prepareUser();
+        $user = self::prepareUser();
         $profile = $user->create(Profile::className(), ['nickname' => 'rhopress']);
         $result = $user->register([$profile]);
         if ($result === true) {
@@ -124,7 +124,7 @@ class UserTest extends TestCase
      */
     public function testRegisterProfileEmail()
     {
-        $user = $this->prepareUser();
+        $user = self::prepareUser();
         $profile = $user->create(Profile::className(), ['nickname' => 'rhopress']);
         $email = $user->create(Email::className(), ['email' => 'dev@rho.press']);
         $this->assertTrue($user->register([$profile, $email]));

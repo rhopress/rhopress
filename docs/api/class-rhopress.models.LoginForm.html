@@ -53,6 +53,10 @@
 							rhopress<span></span>
 						</a>
 							<ul>
+					<li>
+						<a href="namespace-rhopress.controllers.html">
+							controllers						</a>
+							</li>
 					<li class="active">
 						<a href="namespace-rhopress.models.html">
 							models						</a>
@@ -65,8 +69,11 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-rhopress.models.Article.html">Article</a></li>
+				<li><a href="class-rhopress.models.ArticleQuery.html">ArticleQuery</a></li>
 				<li><a href="class-rhopress.models.Email.html">Email</a></li>
 				<li class="active"><a href="class-rhopress.models.LoginForm.html">LoginForm</a></li>
+				<li><a href="class-rhopress.models.Post.html">Post</a></li>
 				<li><a href="class-rhopress.models.Profile.html">Profile</a></li>
 				<li><a href="class-rhopress.models.RegisterForm.html">RegisterForm</a></li>
 				<li><a href="class-rhopress.models.User.html">User</a></li>
@@ -121,7 +128,9 @@ yii\base\Model
 
 				<b>Author:</b>
 				vistart <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;">&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;</a><br>
-			<b>Located at</b> <a href="source-class-rhopress.models.LoginForm.html#17-98" title="Go to source code">models/LoginForm.php</a>
+				<b>Since:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-rhopress.models.LoginForm.html#17-113" title="Go to source code">models/LoginForm.php</a>
 		<br>
 	</div>
 
@@ -141,7 +150,7 @@ yii\base\Model
 
 			<td class="name"><div>
 			<a class="anchor" href="#_rules">#</a>
-			<code><a href="source-class-rhopress.models.LoginForm.html#30-38" title="Go to source code">rules</a>( )</code>
+			<code><a href="source-class-rhopress.models.LoginForm.html#31-39" title="Go to source code">rules</a>( )</code>
 
 			<div class="description short">
 				
@@ -170,7 +179,7 @@ yii\base\Model
 
 			<td class="name"><div>
 			<a class="anchor" href="#_validatePassword">#</a>
-			<code><a href="source-class-rhopress.models.LoginForm.html#40-55" title="Go to source code">validatePassword</a>( <span>string <var>$attribute</var></span>, <span>array <var>$params</var></span> )</code>
+			<code><a href="source-class-rhopress.models.LoginForm.html#41-56" title="Go to source code">validatePassword</a>( <span>string <var>$attribute</var></span>, <span>array <var>$params</var></span> )</code>
 
 			<div class="description short">
 				<p>Validates the password.
@@ -197,6 +206,39 @@ This method serves as the inline validation for password.</p>
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="login" id="_login">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_login">#</a>
+			<code><a href="source-class-rhopress.models.LoginForm.html#58-70" title="Go to source code">login</a>( )</code>
+
+			<div class="description short">
+				<p>Logs in a user using the provided username and password.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Logs in a user using the provided username and password.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean<br>whether the user is logged in successfully
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="getUser" id="_getUser">
 
 			<td class="attributes"><code>
@@ -208,7 +250,7 @@ This method serves as the inline validation for password.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getUser">#</a>
-			<code><a href="source-class-rhopress.models.LoginForm.html#57-69" title="Go to source code">getUser</a>( )</code>
+			<code><a href="source-class-rhopress.models.LoginForm.html#72-84" title="Go to source code">getUser</a>( )</code>
 
 			<div class="description short">
 				<p>Finds user by [[username]]</p>
@@ -248,7 +290,7 @@ This method serves as the inline validation for password.</p>
 				<td class="attributes"><code>integer</code></td>
 				<td class="name">
 					<code>
-						<a href="source-class-rhopress.models.LoginForm.html#71" title="Go to source code"><b>ACCOUNT_TYPE_INVALID</b></a>
+						<a href="source-class-rhopress.models.LoginForm.html#86" title="Go to source code"><b>ACCOUNT_TYPE_INVALID</b></a>
 					</code>
 
 					<div class="description short">
@@ -272,7 +314,7 @@ This method serves as the inline validation for password.</p>
 				<td class="attributes"><code>integer</code></td>
 				<td class="name">
 					<code>
-						<a href="source-class-rhopress.models.LoginForm.html#72" title="Go to source code"><b>ACCOUNT_TYPE_STRING</b></a>
+						<a href="source-class-rhopress.models.LoginForm.html#87" title="Go to source code"><b>ACCOUNT_TYPE_STRING</b></a>
 					</code>
 
 					<div class="description short">
@@ -296,7 +338,7 @@ This method serves as the inline validation for password.</p>
 				<td class="attributes"><code>integer</code></td>
 				<td class="name">
 					<code>
-						<a href="source-class-rhopress.models.LoginForm.html#73" title="Go to source code"><b>ACCOUNT_TYPE_EMAIL</b></a>
+						<a href="source-class-rhopress.models.LoginForm.html#88" title="Go to source code"><b>ACCOUNT_TYPE_EMAIL</b></a>
 					</code>
 
 					<div class="description short">
@@ -331,7 +373,7 @@ This method serves as the inline validation for password.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.models.LoginForm.html#25" title="Go to source code"><var>$username</var></a>
+					<a href="source-class-rhopress.models.LoginForm.html#26" title="Go to source code"><var>$username</var></a>
 
 				<div class="description short">
 					
@@ -356,7 +398,7 @@ This method serves as the inline validation for password.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.models.LoginForm.html#26" title="Go to source code"><var>$password</var></a>
+					<a href="source-class-rhopress.models.LoginForm.html#27" title="Go to source code"><var>$password</var></a>
 
 				<div class="description short">
 					
@@ -381,7 +423,7 @@ This method serves as the inline validation for password.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.models.LoginForm.html#27" title="Go to source code"><var>$rememberMe</var></a>
+					<a href="source-class-rhopress.models.LoginForm.html#28" title="Go to source code"><var>$rememberMe</var></a>
 
 				<div class="description short">
 					

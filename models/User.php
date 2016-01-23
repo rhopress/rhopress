@@ -21,6 +21,7 @@ use Yii;
  * @property string $username
  * @property-read Profile $profile
  * @property-read Email[] $emails
+ * @property-read Article[] $articles
  * @since 1.0
  * @author vistart <i@vistart.name>
  */
@@ -86,15 +87,30 @@ class User extends BaseUserModel
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getProfile()
     {
         $profile = Profile::buildNoInitModel();
         return $this->hasOne(Profile::className(), [$profile->createdByAttribute => $this->guidAttribute])->inverseOf('user');
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getEmails()
     {
         $email = Email::buildNoInitModel();
         return $this->hasMany(Email::className(), [$email->createdByAttribute => $this->guidAttribute])->inverseOf('user');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticles()
+    {
+        $article = Article::buildNoInitModel();
+        return $this->hasMany(Article::className(), [$article->createdByAttribute => $this->guidAttribute])->inverseOf('user');
     }
 }

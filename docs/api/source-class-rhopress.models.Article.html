@@ -150,16 +150,18 @@
 </span><span id="55" class="l"><a href="#55">55 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> rules()
 </span><span id="56" class="l"><a href="#56">56 </a>    {
 </span><span id="57" class="l"><a href="#57">57 </a>        <span class="php-var">$rules</span> = [
-</span><span id="58" class="l"><a href="#58">58 </a>            [[<span class="php-quote">'name'</span>, <span class="php-quote">'title'</span>], <span class="php-quote">'required'</span>],
-</span><span id="59" class="l"><a href="#59">59 </a>            [[<span class="php-quote">'name'</span>, <span class="php-quote">'title'</span>], <span class="php-quote">'string'</span>, <span class="php-quote">'max'</span> =&gt; <span class="php-num">255</span>],
-</span><span id="60" class="l"><a href="#60">60 </a>            [[<span class="php-quote">'status'</span>, <span class="php-quote">'comment_status'</span>], <span class="php-quote">'default'</span>, <span class="php-quote">'value'</span> =&gt; <span class="php-num">0</span>],
-</span><span id="61" class="l"><a href="#61">61 </a>            [<span class="php-quote">'status'</span>, <span class="php-quote">'in'</span>, <span class="php-quote">'range'</span> =&gt; <span class="php-keyword2">array_keys</span>(<span class="php-keyword1">static</span>::<span class="php-var">$statuses</span>)],
-</span><span id="62" class="l"><a href="#62">62 </a>            [<span class="php-quote">'comment_status'</span>, <span class="php-quote">'in'</span>, <span class="php-quote">'range'</span> =&gt; <span class="php-keyword2">array_keys</span>(<span class="php-keyword1">static</span>::<span class="php-var">$commentStatuses</span>)],
-</span><span id="63" class="l"><a href="#63">63 </a>        ];
-</span><span id="64" class="l"><a href="#64">64 </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">array_merge</span>(parent::rules(), <span class="php-var">$rules</span>);
-</span><span id="65" class="l"><a href="#65">65 </a>    }
-</span><span id="66" class="l"><a href="#66">66 </a>}
-</span><span id="67" class="l"><a href="#67">67 </a></span></code></pre>
+</span><span id="58" class="l"><a href="#58">58 </a>            [[<span class="php-quote">'title'</span>], <span class="php-quote">'required'</span>],
+</span><span id="59" class="l"><a href="#59">59 </a>            [[<span class="php-quote">'name'</span>], <span class="php-quote">'unique'</span>],
+</span><span id="60" class="l"><a href="#60">60 </a>            [[<span class="php-quote">'title'</span>, <span class="php-quote">'name'</span>], <span class="php-quote">'trim'</span>],
+</span><span id="61" class="l"><a href="#61">61 </a>            [[<span class="php-quote">'name'</span>, <span class="php-quote">'title'</span>], <span class="php-quote">'string'</span>, <span class="php-quote">'max'</span> =&gt; <span class="php-num">255</span>],
+</span><span id="62" class="l"><a href="#62">62 </a>            [[<span class="php-quote">'status'</span>, <span class="php-quote">'comment_status'</span>], <span class="php-quote">'default'</span>, <span class="php-quote">'value'</span> =&gt; <span class="php-num">0</span>],
+</span><span id="63" class="l"><a href="#63">63 </a>            [<span class="php-quote">'status'</span>, <span class="php-quote">'in'</span>, <span class="php-quote">'range'</span> =&gt; <span class="php-keyword2">array_keys</span>(<span class="php-keyword1">static</span>::<span class="php-var">$statuses</span>)],
+</span><span id="64" class="l"><a href="#64">64 </a>            [<span class="php-quote">'comment_status'</span>, <span class="php-quote">'in'</span>, <span class="php-quote">'range'</span> =&gt; <span class="php-keyword2">array_keys</span>(<span class="php-keyword1">static</span>::<span class="php-var">$commentStatuses</span>)],
+</span><span id="65" class="l"><a href="#65">65 </a>        ];
+</span><span id="66" class="l"><a href="#66">66 </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">array_merge</span>(parent::rules(), <span class="php-var">$rules</span>);
+</span><span id="67" class="l"><a href="#67">67 </a>    }
+</span><span id="68" class="l"><a href="#68">68 </a>}
+</span><span id="69" class="l"><a href="#69">69 </a></span></code></pre>
 	</div>
 
 	<div id="footer">

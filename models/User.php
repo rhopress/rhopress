@@ -43,12 +43,21 @@ class User extends BaseUserModel
      */
     public $idPreassigned = true;
 
+    /**
+     * Get username.
+     * @return string
+     */
     public function getUsername()
     {
         $idAttribute = $this->idAttribute;
         return $this->$idAttribute;
     }
 
+    /**
+     * Set username.
+     * @param string $username
+     * @return string username.
+     */
     public function setUsername($username)
     {
         $idAttribute = $this->idAttribute;

@@ -12,6 +12,7 @@
 
 namespace rhopress\models;
 
+use Yii;
 use rhopress\models\User;
 
 /**
@@ -31,6 +32,7 @@ class LoginForm extends \yii\base\Model
     public function rules()
     {
         return [
+            [['username', 'password'], 'required'],
             ['username', 'string', 'max' => 255, 'min' => 3],
             ['password', 'string', 'max' => 32],
             ['password', 'validatePassword'],
@@ -64,7 +66,7 @@ class LoginForm extends \yii\base\Model
     {
         $user = $this->getUser();
         if ($this->validate()) {
-            return Yii::$app->user->login($user, $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->user->login($user, $this->rememberMe ? 60 * 5 : 0);
         }
         return false;
     }
@@ -109,5 +111,14 @@ class LoginForm extends \yii\base\Model
             return static::ACCOUNT_TYPE_STRING;
         }
         return static::ACCOUNT_TYPE_INVALID;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('app', 'Username'),
+            'password' => Yii::t('app', 'Password'),
+            'rememberMe' => Yii::t('app', 'Remember Me'),
+        ];
     }
 }

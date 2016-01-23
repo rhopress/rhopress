@@ -49,18 +49,27 @@ class Article extends Post
     public function init()
     {
         $this->queryClass = ArticleQuery::className();
+        $this->on(static::EVENT_BEFORE_VALIDATE, [$this, 'onFilterName']);
         parent::init();
     }
 
     public function rules()
     {
         $rules = [
-            [['name', 'title'], 'required'],
+            [['title', 'name'], 'required'],
+            [['name'], 'unique'],
+            [['title', 'name'], 'trim'],
             [['name', 'title'], 'string', 'max' => 255],
             [['status', 'comment_status'], 'default', 'value' => 0],
             ['status', 'in', 'range' => array_keys(static::$statuses)],
             ['comment_status', 'in', 'range' => array_keys(static::$commentStatuses)],
         ];
         return array_merge(parent::rules(), $rules);
+    }
+
+    public function onFilterName($event)
+    {
+        $sender = $event->sender;
+        $sender->name = $sender->title;
     }
 }

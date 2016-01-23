@@ -73,6 +73,10 @@ class UserTest extends TestCase
         if (empty($id)) {
             $id = 'rhopress';
         }
+        $user = User::find()->id($id)->one();
+        if ($user) {
+            return $user;
+        }
         if (empty($password)) {
             $password = '123456';
         }

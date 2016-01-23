@@ -33,6 +33,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
                 '' => $this->id . '/post/index',
                 '<id:\d+>' => $this->id . '/post/view',
                 'new' => $this->id . '/post/new',
+                '<id:\d+>/delete' => $this->id . '/post/delete',
                 '<id:\d+>/comment' => $this->id . '/comment/new',
                 '<id:\d+>/comments' => $this->id . '/comment/list',
                 '<id:\w+>' => $this->id . '/post/viewbyname',

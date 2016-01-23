@@ -18,6 +18,10 @@ use Yii;
 /**
  * User Model
  *
+ * @property string $username
+ * @property-read Profile $profile
+ * @property-read Email[] $emails
+ * @since 1.0
  * @author vistart <i@vistart.name>
  */
 class User extends BaseUserModel
@@ -37,6 +41,18 @@ class User extends BaseUserModel
      * @var boolean ID assigned by user.
      */
     public $idPreassigned = true;
+
+    public function getUsername()
+    {
+        $idAttribute = $this->idAttribute;
+        return $this->$idAttribute;
+    }
+
+    public function setUsername($username)
+    {
+        $idAttribute = $this->idAttribute;
+        return $this->$idAttribute = $username;
+    }
 
     /**
      * @inheritdoc
@@ -68,5 +84,17 @@ class User extends BaseUserModel
             'status' => Yii::t('app', 'User Status'),
             'source' => Yii::t('app', 'User Source'),
         ];
+    }
+
+    public function getProfile()
+    {
+        $profile = Profile::buildNoInitModel();
+        return $this->hasOne(Profile::className(), [$profile->createdByAttribute => $this->guidAttribute])->inverseOf('user');
+    }
+
+    public function getEmails()
+    {
+        $email = Email::buildNoInitModel();
+        return $this->hasMany(Email::className(), [$email->createdByAttribute => $this->guidAttribute])->inverseOf('user');
     }
 }

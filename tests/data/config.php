@@ -32,6 +32,7 @@ $config = [
     ],
     'cache' => [
         'class' => 'yii\caching\FileCache',
+        'keyPrefix' => 'yii2-rhopress_',
     ],
 ];
 

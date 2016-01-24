@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class rhopress\models\ArticleQuery</title>
+	<title>Class rhopress\widgets\CommentWidget</title>
 
 	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
 	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
@@ -28,7 +28,7 @@
 
 				<ul class="nav navbar-nav">
 					<li>
-						<a href="namespace-rhopress.models.html" title="Summary of rhopress\models"><span>Namespace</span></a>
+						<a href="namespace-rhopress.widgets.html" title="Summary of rhopress\widgets"><span>Namespace</span></a>
 					</li>
 					<li class="active">
 <span>Class</span>					</li>
@@ -57,11 +57,11 @@
 						<a href="namespace-rhopress.controllers.html">
 							controllers						</a>
 							</li>
-					<li class="active">
+					<li>
 						<a href="namespace-rhopress.models.html">
 							models						</a>
 							</li>
-					<li>
+					<li class="active">
 						<a href="namespace-rhopress.widgets.html">
 							widgets						</a>
 							</li>
@@ -73,16 +73,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-rhopress.models.Article.html">Article</a></li>
-				<li class="active"><a href="class-rhopress.models.ArticleQuery.html">ArticleQuery</a></li>
-				<li><a href="class-rhopress.models.Comment.html">Comment</a></li>
-				<li><a href="class-rhopress.models.CommentQuery.html">CommentQuery</a></li>
-				<li><a href="class-rhopress.models.Email.html">Email</a></li>
-				<li><a href="class-rhopress.models.LoginForm.html">LoginForm</a></li>
-				<li><a href="class-rhopress.models.Post.html">Post</a></li>
-				<li><a href="class-rhopress.models.Profile.html">Profile</a></li>
-				<li><a href="class-rhopress.models.RegisterForm.html">RegisterForm</a></li>
-				<li><a href="class-rhopress.models.User.html">User</a></li>
+				<li class="active"><a href="class-rhopress.widgets.CommentWidget.html">CommentWidget</a></li>
 			</ul>
 
 
@@ -98,22 +89,22 @@
 <div id="right">
 	<div id="rightInner">
 <div id="content" class="class">
-	<h1>Class ArticleQuery</h1>
+	<h1>Class CommentWidget</h1>
 
 
 	<div class="description">
-	<p>Description of ArticleQuery</p>
+	<p>Description of CommentWidget</p>
 	</div>
 
 	<dl class="tree well">
 		<dd style="padding-left:0px">
-vistart\Models\queries\BaseBlameableQuery
+yii\base\Widget
 			
 			
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>rhopress\models\ArticleQuery</span></b>			
+<b><span>rhopress\widgets\CommentWidget</span></b>			
 			
 			
 		</dd>
@@ -129,14 +120,12 @@ vistart\Models\queries\BaseBlameableQuery
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-rhopress.html">rhopress</a>\<a href="namespace-rhopress.models.html">models</a><br>
+		<b>Namespace:</b> <a href="namespace-rhopress.html">rhopress</a>\<a href="namespace-rhopress.widgets.html">widgets</a><br>
 		
 
 				<b>Author:</b>
 				vistart <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;">&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;</a><br>
-				<b>Since:</b>
-				1.0<br>
-			<b>Located at</b> <a href="source-class-rhopress.models.ArticleQuery.html#15-33" title="Go to source code">models/ArticleQuery.php</a>
+			<b>Located at</b> <a href="source-class-rhopress.widgets.CommentWidget.html#15-29" title="Go to source code">widgets/CommentWidget.php</a>
 		<br>
 	</div>
 
@@ -145,7 +134,7 @@ vistart\Models\queries\BaseBlameableQuery
 		<div class="panel panel-default">
 			<div class="panel-heading"><h2>Methods summary</h2></div>
 			<table class="summary table table-bordered table-striped methods" id="methods">
-		<tr data-order="title" id="_title">
+		<tr data-order="run" id="_run">
 
 			<td class="attributes"><code>
 				 public 
@@ -155,37 +144,8 @@ vistart\Models\queries\BaseBlameableQuery
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_title">#</a>
-			<code><a href="source-class-rhopress.models.ArticleQuery.html#24-27" title="Go to source code">title</a>( <span> <var>$title</var></span>, <span> <var>$like</var> = <span class="php-keyword1">false</span></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="name" id="_name">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_name">#</a>
-			<code><a href="source-class-rhopress.models.ArticleQuery.html#29-32" title="Go to source code">name</a>( <span> <var>$name</var></span>, <span> <var>$like</var> = <span class="php-keyword1">false</span></span> )</code>
+			<a class="anchor" href="#_run">#</a>
+			<code><a href="source-class-rhopress.widgets.CommentWidget.html#25-28" title="Go to source code">run</a>( )</code>
 
 			<div class="description short">
 				
@@ -210,6 +170,42 @@ vistart\Models\queries\BaseBlameableQuery
 
 
 
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="comment" id="$comment">
+			<td class="attributes"><code>
+				public  
+				
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-rhopress.widgets.CommentWidget.html#23" title="Go to source code"><var>$comment</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$comment" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
 
 
 

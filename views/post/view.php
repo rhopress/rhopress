@@ -11,9 +11,15 @@
  */
 use yii\helpers\Html;
 use yii\helpers\Url;
+use rhopress\widgets\CommentWidget;
 
 /* @var $this yii\web\View */
 /* @var $article rhopress\models\Article */
+/*
+$comment = $article->createComment(['content' => 'comment']);
+$comment->save();
+$sub = $comment->createComment(['content' => 'sub']);
+$sub->save();*/
 ?>
 <section id="post-view">
     <div class="box">
@@ -22,6 +28,13 @@ use yii\helpers\Url;
         <div class="entry-content">
             <p style="font-family: Noto-Serif; font-size: 19px; font-weight: 400"><?= Html::encode($article->content) ?></p>
         </div>
+        <?php
+        if ($comments = $article->getComments()) {
+            foreach ($comments as $comment) {
+                echo CommentWidget::widget(['comment' => $comment]);
+            }
+        }
+        ?>
         <hr/>
         <?= Html::a(Yii::t('app', 'Delete'), Url::to(['post/delete', 'id' => $article->id]), ['data-method' => 'post', 'class' => 'btn btn-danger']); ?>
     </div>

@@ -12,6 +12,9 @@
 
 namespace rhopress\models;
 
+use Yii;
+use yii\helpers\Inflector;
+
 /**
  * Description of Article
  *
@@ -49,10 +52,13 @@ class Article extends Post
     public function init()
     {
         $this->queryClass = ArticleQuery::className();
-        $this->on(static::EVENT_BEFORE_VALIDATE, [$this, 'onFilterName']);
+        $this->on(static::EVENT_BEFORE_VALIDATE, [$this, 'onSlugName']);
         parent::init();
     }
 
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         $rules = [
@@ -67,9 +73,40 @@ class Article extends Post
         return array_merge(parent::rules(), $rules);
     }
 
-    public function onFilterName($event)
+    /**
+     * 
+     * @param \yii\base\Event $event
+     */
+    public function onSlugName($event)
     {
         $sender = $event->sender;
-        $sender->name = $sender->title;
+        if (empty($sender->name) && !empty($sender->title)) {
+            $sender->name = Inflector::slug($sender->title);
+        }
+    }
+
+    /**
+     * Create new comment.
+     * @param array $config
+     * @return Comment
+     */
+    public function createComment($config = [])
+    {
+        $model = Comment::buildNoInitModel();
+        if (!isset($config['class'])) {
+            $config['class'] = Comment::className();
+        }
+        if (!isset($config[$model->parentAttribute])) {
+            $config[$model->parentAttribute] = '';
+        }
+        if (!isset($config['article_guid'])) {
+            $config['article_guid'] = $this->guid;
+        }
+        return Yii::createObject($config);
+    }
+
+    public function getComments()
+    {
+        return Comment::find()->article($this->guid)->parentComment()->all();
     }
 }

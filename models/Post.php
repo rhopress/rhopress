@@ -35,4 +35,6 @@ abstract class Post extends \vistart\Models\models\BaseBlameableModel
         $user = User::buildNoInitModel();
         return $this->hasOne(User::className(), [$user->guidAttribute => $this->createdByAttribute]);
     }
+
+    abstract public function createComment($config = []);
 }

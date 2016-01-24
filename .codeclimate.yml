@@ -5,11 +5,11 @@ exclude_paths:
     
 ratings:
     paths:
-        - events/**
-        - components/**
+        - controllers/**
         - models/**
-        - traits/**
-        - queries/**
+        - views/**
+        - widgets/**
+        - Module
         
 engines:
     phpmd:

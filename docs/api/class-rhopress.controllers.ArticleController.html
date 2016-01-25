@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class rhopress\controllers\PostController</title>
+	<title>Class rhopress\controllers\ArticleController</title>
 
 	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
 	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
@@ -55,17 +55,28 @@
 							<ul>
 					<li class="active">
 						<a href="namespace-rhopress.controllers.html">
-							controllers						</a>
+							controllers<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-rhopress.controllers.article.html">
+							article						</a>
 							</li>
+								</ul></li>
 					<li>
 						<a href="namespace-rhopress.models.html">
 							models						</a>
 							</li>
 					<li>
 						<a href="namespace-rhopress.widgets.html">
-							widgets						</a>
+							widgets<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-rhopress.widgets.comment.html">
+							comment						</a>
 							</li>
-								</ul></li>
+								</ul></li></ul></li>
 			</ul>
 		</div>
 
@@ -73,7 +84,8 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-rhopress.controllers.PostController.html">PostController</a></li>
+				<li class="active"><a href="class-rhopress.controllers.ArticleController.html">ArticleController</a></li>
+				<li><a href="class-rhopress.controllers.CommentController.html">CommentController</a></li>
 			</ul>
 
 
@@ -89,7 +101,7 @@
 <div id="right">
 	<div id="rightInner">
 <div id="content" class="class">
-	<h1>Class PostController</h1>
+	<h1>Class ArticleController</h1>
 
 
 	<div class="description">
@@ -104,7 +116,7 @@ yii\web\Controller
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>rhopress\controllers\PostController</span></b>			
+<b><span>rhopress\controllers\ArticleController</span></b>			
 			
 			
 		</dd>
@@ -125,7 +137,9 @@ yii\web\Controller
 
 				<b>Author:</b>
 				vistart <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;">&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;</a><br>
-			<b>Located at</b> <a href="source-class-rhopress.controllers.PostController.html#20-106" title="Go to source code">controllers/PostController.php</a>
+				<b>Since:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-rhopress.controllers.ArticleController.html#20-127" title="Go to source code">controllers/ArticleController.php</a>
 		<br>
 	</div>
 
@@ -145,7 +159,36 @@ yii\web\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_behaviors">#</a>
-			<code><a href="source-class-rhopress.controllers.PostController.html#30-51" title="Go to source code">behaviors</a>( )</code>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#31-57" title="Go to source code">behaviors</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="actions" id="_actions">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_actions">#</a>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#59-66" title="Go to source code">actions</a>( )</code>
 
 			<div class="description short">
 				
@@ -174,36 +217,7 @@ yii\web\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_actionIndex">#</a>
-			<code><a href="source-class-rhopress.controllers.PostController.html#53-56" title="Go to source code">actionIndex</a>( )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="actionView" id="_actionView">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_actionView">#</a>
-			<code><a href="source-class-rhopress.controllers.PostController.html#58-65" title="Go to source code">actionView</a>( <span> <var>$id</var></span> )</code>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#68-71" title="Go to source code">actionIndex</a>( )</code>
 
 			<div class="description short">
 				
@@ -232,7 +246,7 @@ yii\web\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_actionNew">#</a>
-			<code><a href="source-class-rhopress.controllers.PostController.html#67-76" title="Go to source code">actionNew</a>( )</code>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#73-82" title="Go to source code">actionNew</a>( )</code>
 
 			<div class="description short">
 				
@@ -261,7 +275,7 @@ yii\web\Controller
 
 			<td class="name"><div>
 			<a class="anchor" href="#_actionDelete">#</a>
-			<code><a href="source-class-rhopress.controllers.PostController.html#78-88" title="Go to source code">actionDelete</a>( <span> <var>$id</var></span> )</code>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#84-94" title="Go to source code">actionDelete</a>( <span> <var>$id</var></span> )</code>
 
 			<div class="description short">
 				
@@ -283,14 +297,58 @@ yii\web\Controller
 
 			<td class="attributes"><code>
 				 public static
-				
+				<code><a href="class-rhopress.models.Article.html">rhopress\models\Article</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getArticle">#</a>
-			<code><a href="source-class-rhopress.controllers.PostController.html#90-105" title="Go to source code">getArticle</a>( <span> <var>$id</var></span> )</code>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#96-121" title="Go to source code">getArticle</a>( <span>string|integer <var>$id</var></span>, <span>boolean <var>$throwExceptionIfNull</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$id</var></dt>
+						<dd></dd>
+						<dt><var>$throwExceptionIfNull</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-rhopress.models.Article.html">rhopress\models\Article</a></code>
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						yii\web\NotFoundHttpException
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="t" id="_t">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_t">#</a>
+			<code><a href="source-class-rhopress.controllers.ArticleController.html#123-126" title="Go to source code">t</a>( <span> <var>$message</var></span>, <span> <var>$params</var> = []</span>, <span> <var>$language</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -331,7 +389,7 @@ yii\web\Controller
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-rhopress.controllers.PostController.html#28" title="Go to source code"><var>$layout</var></a>
+					<a href="source-class-rhopress.controllers.ArticleController.html#29" title="Go to source code"><var>$layout</var></a>
 
 				<div class="description short">
 					
@@ -345,7 +403,7 @@ yii\web\Controller
 			<td class="value">
 				<div>
 					<a href="#$layout" class="anchor">#</a>
-					<code><span class="php-quote">'post/main'</span></code>
+					<code><span class="php-quote">'article/main'</span></code>
 				</div>
 			</td>
 		</tr>

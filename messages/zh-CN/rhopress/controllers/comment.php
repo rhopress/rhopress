@@ -9,8 +9,6 @@
  * @copyright Copyright (c) 2016 vistart
  * @license http://vistart.name/license/
  */
-/* @var $this yii\web\View */
-/* @var $comment rhopress\models\Comment */
-?>
-<?= $comment->user->profile->display_name; ?>:&nbsp;
-<?= $comment->content; ?>
+return [
+    'Comment Not Found.' => '评论未找到。',
+];

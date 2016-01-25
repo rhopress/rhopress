@@ -12,9 +12,12 @@
 
 namespace rhopress\models;
 
+use rhopress\Module;
+
 /**
  * Description of Comment
  *
+ * @property-read Article $article
  * @since 1.0
  * @author vistart <i@vistart.name>
  */
@@ -44,6 +47,7 @@ class Comment extends Post
         $rules = [
             ['article_guid', 'required'],
             ['article_guid', 'string', 'max' => 36],
+            [['article_guid', $this->idAttribute], 'unique', 'targetAttribute' => ['article_guid', $this->idAttribute]],
         ];
         return array_merge(parent::rules(), $rules);
     }
@@ -54,5 +58,24 @@ class Comment extends Post
             $config['article_guid'] = $this->article_guid;
         }
         return $this->bear($config);
+    }
+
+    /**
+     * 
+     * @return \rhopress\models\ArticleQuery
+     */
+    public function getArticle()
+    {
+        $article = Article::buildNoInitModel();
+        return $this->hasOne(Article::className(), [$article->guidAttribute => 'article_guid']);
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'content' => Module::t('models', 'Content'),
+            'create_time' => Module::t('models', 'Created At'),
+            'update_time' => Module::t('models', 'Last Updated At'),
+        ];
     }
 }

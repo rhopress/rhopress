@@ -14,6 +14,7 @@ namespace rhopress\models;
 
 use Yii;
 use yii\helpers\Inflector;
+use rhopress\Module;
 
 /**
  * Description of Article
@@ -22,6 +23,8 @@ use yii\helpers\Inflector;
  * @property integer $status
  * @property integer $comment_status
  * @property string $title
+ * @property-read Comment[] $comments
+ * @property-read Comment[] $childComments
  * @since 1.0
  * @author vistart <i@vistart.name>
  */
@@ -80,6 +83,9 @@ class Article extends Post
             'name' => static::t('Article alias'),
             'status' => static::t('Article status'),
             'comment_status' => static::t('Comment status'),
+            'content' => Module::t('models', 'Content'),
+            'create_time' => Module::t('models', 'Created At'),
+            'update_time' => Module::t('models', 'Last Updated At'),
         ];
     }
 
@@ -115,13 +121,22 @@ class Article extends Post
         return Yii::createObject($config);
     }
 
+    /**
+     * 
+     * @return \rhopress\models\CommentQuery
+     */
     public function getComments()
     {
-        return Comment::find()->article($this->guid)->parentComment()->all();
+        return $this->hasMany(Comment::className(), ['article_guid' => $this->guidAttribute])->inverseOf('article');
+    }
+
+    public function getChildComments()
+    {
+        return $this->getComments()->parentComment();
     }
 
     public static function t($message, $params = [], $language = null)
     {
-        return \rhopress\Module::t('models/article', $message, $params, $language);
+        return Module::t('models/article', $message, $params, $language);
     }
 }

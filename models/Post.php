@@ -25,6 +25,7 @@ abstract class Post extends \vistart\Models\models\BaseBlameableModel
     public $idAttributeLength = 8;
     public $idAttributeType = 1;
     public $contentAttributeRule = ['string', 'max' => 65535];
+    public $idCreatorCombinatedUnique = false;
 
     /**
      * 

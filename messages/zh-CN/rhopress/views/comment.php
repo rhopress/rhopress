@@ -9,8 +9,8 @@
  * @copyright Copyright (c) 2016 vistart
  * @license http://vistart.name/license/
  */
-
 return [
-    'Add' => '新建',
+    'Review' => '回复',
     'Reset' => '重置',
+    'Delete' => '删除',
 ];

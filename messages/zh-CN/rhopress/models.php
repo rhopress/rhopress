@@ -11,5 +11,7 @@
  */
 
 return [
-    'Article Not Found' => '文章未找到',
+    'Content' => '内容',
+    'Created At' => '创建于',
+    'Last Updated At' => '上次更新于',
 ];

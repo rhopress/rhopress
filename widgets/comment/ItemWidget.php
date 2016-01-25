@@ -10,7 +10,9 @@
  * @license http://vistart.name/license/
  */
 
-namespace rhopress\widgets;
+namespace rhopress\widgets\comment;
+
+use rhopress\models\Comment;
 
 /**
  * Description of CommentWidget
@@ -18,13 +20,21 @@ namespace rhopress\widgets;
  * @since 1.0
  * @author vistart <i@vistart.name>
  */
-class CommentWidget extends \yii\base\Widget
+class ItemWidget extends \yii\base\Widget
 {
 
+    /**
+     * @var Comment comment instance.
+     */
     public $comment;
+
+    /**
+     * @var Comment comment instance.
+     */
+    public $newComment;
 
     public function run()
     {
-        return $this->render('comment', ['comment' => $this->comment]);
+        return $this->render('item', ['comment' => $this->comment, 'newComment' => $this->newComment instanceof Comment ? $this->newComment : $this->comment->createComment()]);
     }
 }

@@ -20,25 +20,31 @@ use yii\filters\VerbFilter;
 /**
  * Description of PostController
  *
+ * @since 1.0
  * @author vistart <i@vistart.name>
  */
-class PostController extends \yii\web\Controller
+class ArticleController extends \yii\web\Controller
 {
 
-    public $layout = 'post/main';
+    public $layout = 'article/main';
 
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['new'],
+                'only' => ['new', 'delete'],
                 'rules' => [
                     [
                         'actions' => ['new'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ]
                 ],
             ],
             'verbs' => [
@@ -50,18 +56,18 @@ class PostController extends \yii\web\Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'view' => [
+                'class' => 'rhopress\controllers\article\ViewAction',
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
-    }
-
-    public function actionView($id)
-    {
-        $article = $this->getArticle($id);
-        if (!$article) {
-            throw new \yii\web\NotFoundHttpException(static::t('Article Not Found'));
-        }
-        return $this->render('view', ['article' => $article]);
     }
 
     public function actionNew()
@@ -69,7 +75,7 @@ class PostController extends \yii\web\Controller
         $article = new Article();
         if ($article->load(Yii::$app->request->post())) {
             if ($article->save()) {
-                return $this->redirect(['post/view', 'id' => $article->id]);
+                return $this->redirect(['article/view', 'id' => $article->id]);
             }
         }
         return $this->render('new', ['article' => $article]);
@@ -77,9 +83,9 @@ class PostController extends \yii\web\Controller
 
     public function actionDelete($id)
     {
-        $article = $this->getArticle($id);
-        if (!$article) {
-            throw new \yii\web\NotFoundHttpException(static::t('Article Not Found'));
+        $article = static::getArticle($id);
+        if ($article->user->guid != Yii::$app->user->identity->guid) {
+            throw new \yii\web\ForbiddenHttpException('Delete Denied.');
         }
         if (!$article->delete()) {
             throw new \yii\web\BadRequestHttpException('Article Delete Failed.');
@@ -87,7 +93,14 @@ class PostController extends \yii\web\Controller
         return $this->goHome();
     }
 
-    public static function getArticle($id)
+    /**
+     * 
+     * @param string|integer $id
+     * @param boolean $throwExceptionIfNull
+     * @return Article
+     * @throws \yii\web\NotFoundHttpException
+     */
+    public static function getArticle($id, $throwExceptionIfNull = true)
     {
         if (is_numeric($id)) {
             $article = Article::find()->id($id)->one();
@@ -101,11 +114,14 @@ class PostController extends \yii\web\Controller
                 return $article;
             }
         }
+        if ($throwExceptionIfNull) {
+            throw new \yii\web\NotFoundHttpException(static::t('Article Not Found.'));
+        }
         return null;
     }
 
     public static function t($message, $params = [], $language = null)
     {
-        return \rhopress\Module::t('controllers/post', $message, $params, $language);
+        return \rhopress\Module::t('controllers/article', $message, $params, $language);
     }
 }

@@ -11,18 +11,19 @@
  */
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use rhopress\Module;
 
 /* @var $article rhopress\models\Article */
 ?>
 <section id="post-new">
     <div class="box">
         <?php $form = ActiveForm::begin(); ?>
-        <?= $form->field($article, 'title') ?>
-        <?= $form->field($article, 'content')->textarea(['rows' => 2]) ?> 
+        <?= $form->field($article, 'title', ['template' => "{input}\n{hint}\n{error}"]) ?>
+        <?= $form->field($article, 'content', ['template' => "{input}\n{hint}\n{error}"])->textarea(['rows' => 2]) ?> 
         <hr>
         <div class="form-group">
-            <?= Html::submitButton('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('rhopress/views/post', 'Add'), ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton('<span class="glyphicon glyphicon-refresh"></span> ' . Yii::t('rhopress/views/post', 'Reset'), ['class' => 'btn btn-danger']) ?>
+            <?= Html::submitButton('<span class="glyphicon glyphicon-plus"></span> ' . Module::t('views/article', 'Add'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('<span class="glyphicon glyphicon-refresh"></span> ' . Module::t('views/article', 'Reset'), ['class' => 'btn btn-danger']) ?>
         </div>
         <?php ActiveForm::end(); ?>
     </div>

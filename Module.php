@@ -30,13 +30,15 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
     {
         if ($app instanceof \yii\web\Application) {
             $rules = [
-                '' => $this->id . '/post/index',
-                '<id:\d+>' => $this->id . '/post/view',
-                'new' => $this->id . '/post/new',
-                '<id:\d+>/delete' => $this->id . '/post/delete',
+                '' => $this->id . '/article/index',
+                '<id:\d+>' => $this->id . '/article/view',
+                'new' => $this->id . '/article/new',
+                '<id:\d+>/delete' => $this->id . '/article/delete',
                 '<id:\d+>/comment' => $this->id . '/comment/new',
                 '<id:\d+>/comments' => $this->id . '/comment/list',
-                '<id:\w+>' => $this->id . '/post/viewbyname',
+                '<id:\d+>/comment/<cid:\w+>/review' => $this->id . '/comment/review',
+                '<id:\d+>/comment/<cid:\w+>/delete' => $this->id . '/comment/delete',
+                '<id:\w+>' => $this->id . '/article/viewbyname',
             ];
             $app->getUrlManager()->addRules($rules);
 

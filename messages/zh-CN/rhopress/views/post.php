@@ -10,3 +10,7 @@
  * @license http://vistart.name/license/
  */
 
+return [
+    'Add' => '新建',
+    'Reset' => '重置',
+];

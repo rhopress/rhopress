@@ -65,12 +65,22 @@ class Article extends Post
             [['title', 'name'], 'required'],
             [['name'], 'unique'],
             [['title', 'name'], 'trim'],
-            [['name', 'title'], 'string', 'max' => 255],
+            [['title', 'name'], 'string', 'max' => 255],
             [['status', 'comment_status'], 'default', 'value' => 0],
             ['status', 'in', 'range' => array_keys(static::$statuses)],
             ['comment_status', 'in', 'range' => array_keys(static::$commentStatuses)],
         ];
         return array_merge(parent::rules(), $rules);
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'title' => static::t('Title'),
+            'name' => static::t('Article alias'),
+            'status' => static::t('Article status'),
+            'comment_status' => static::t('Comment status'),
+        ];
     }
 
     /**
@@ -108,5 +118,10 @@ class Article extends Post
     public function getComments()
     {
         return Comment::find()->article($this->guid)->parentComment()->all();
+    }
+
+    public static function t($message, $params = [], $language = null)
+    {
+        return \rhopress\Module::t('models/article', $message, $params, $language);
     }
 }

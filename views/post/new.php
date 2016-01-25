@@ -21,8 +21,8 @@ use yii\helpers\Html;
         <?= $form->field($article, 'content')->textarea(['rows' => 2]) ?> 
         <hr>
         <div class="form-group">
-            <?= Html::submitButton('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('app', 'Add'), ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton('<span class="glyphicon glyphicon-refresh"></span> ' . Yii::t('app', 'Reset'), ['class' => 'btn btn-danger']) ?>
+            <?= Html::submitButton('<span class="glyphicon glyphicon-plus"></span> ' . Yii::t('rhopress/views/post', 'Add'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('<span class="glyphicon glyphicon-refresh"></span> ' . Yii::t('rhopress/views/post', 'Reset'), ['class' => 'btn btn-danger']) ?>
         </div>
         <?php ActiveForm::end(); ?>
     </div>

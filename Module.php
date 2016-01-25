@@ -39,6 +39,17 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
                 '<id:\w+>' => $this->id . '/post/viewbyname',
             ];
             $app->getUrlManager()->addRules($rules);
+
+            $app->i18n->translations['rhopress*'] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'sourceLanguage' => 'en-US',
+                'basePath' => '@rhopress/messages',
+            ];
         }
+    }
+
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        return \Yii::t('rhopress/' . $category, $message, $params, $language);
     }
 }

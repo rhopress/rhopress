@@ -59,7 +59,7 @@ class PostController extends \yii\web\Controller
     {
         $article = $this->getArticle($id);
         if (!$article) {
-            throw new \yii\web\NotFoundHttpException('Article Not Found.');
+            throw new \yii\web\NotFoundHttpException(static::t('Article Not Found'));
         }
         return $this->render('view', ['article' => $article]);
     }
@@ -79,7 +79,7 @@ class PostController extends \yii\web\Controller
     {
         $article = $this->getArticle($id);
         if (!$article) {
-            throw new \yii\web\NotFoundHttpException('Article Not Found.');
+            throw new \yii\web\NotFoundHttpException(static::t('Article Not Found'));
         }
         if (!$article->delete()) {
             throw new \yii\web\BadRequestHttpException('Article Delete Failed.');
@@ -102,5 +102,10 @@ class PostController extends \yii\web\Controller
             }
         }
         return null;
+    }
+
+    public static function t($message, $params = [], $language = null)
+    {
+        return \rhopress\Module::t('controllers/post', $message, $params, $language);
     }
 }

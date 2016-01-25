@@ -5,7 +5,7 @@ The Base Components of Rho Press
 [![Join the chat at https://gitter.im/rhopress/yii2-rhopress](https://badges.gitter.im/rhopress/yii2-rhopress.svg)](https://gitter.im/rhopress/yii2-rhopress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License](https://poser.pugx.org/rhopress/yii2-rhopress/license)](https://packagist.org/packages/rhopress/yii2-rhopress)
 [![Build Status](https://img.shields.io/travis/rhopress/yii2-rhopress.svg)](http://travis-ci.org/rhopress/yii2-rhopress)
-[![Dependency Status](https://www.versioneye.com/user/projects/56a328509b5998003d000098/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56a328509b5998003d000098)
+[![Dependency Status](https://www.versioneye.com/user/projects/56a328509b5998003d000098/badge.svg)](https://www.versioneye.com/user/projects/56a328509b5998003d000098)
 [![Code Climate](https://img.shields.io/codeclimate/github/rhopress/yii2-rhopress.svg)](https://codeclimate.com/github/rhopress/yii2-rhopress)
 
 Installation

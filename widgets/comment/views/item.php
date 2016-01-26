@@ -21,17 +21,22 @@ use yii\helpers\Url;
 ?>
 <?= $comment->user->profile->display_name; ?>:&nbsp;
 <?= $comment->content; ?>
-<?php if ($comment->user->guid == Yii::$app->user->identity->guid) : ?>
-    <?= Html::a(Module::t('views/comment', 'Delete'), Url::to(['comment/delete', 'id' => $comment->article->id, 'cid' => $comment->id]), ['data-method' => 'post', 'class' => 'btn btn-danger']); ?>
+<?php if (!Yii::$app->user->isGuest && $comment->user->guid == Yii::$app->user->identity->guid) : ?>
+    &nbsp;
+    <?= Html::a(Module::t('views/comment', 'Delete'), Url::to(['comment/delete', 'id' => $comment->article->id, 'cid' => $comment->id]), ['data-method' => 'post', 'class' => 'btn btn-danger btn-xs']); ?>
 <?php endif; ?>
-<hr/>
-<div class="row">
-    <div class="col-lg-offset-1">
-        <?php
-        foreach ($comment->children as $sub) {
-            echo ItemWidget::widget(['comment' => $sub]);
-        }
-        ?>
-        <?= NewWidget::widget(['comment' => $newComment]); ?>
+<?php if ($comment->children): ?>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-offset-1">
+            <?php
+            foreach ($comment->children as $sub) {
+                echo ItemWidget::widget(['comment' => $sub]);
+            }
+            ?>
+            <?php if ($newComment): ?>
+                <?= NewWidget::widget(['comment' => $newComment]); ?>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>

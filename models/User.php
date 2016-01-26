@@ -122,4 +122,14 @@ class User extends BaseUserModel
         $article = Article::buildNoInitModel();
         return $this->hasMany(Article::className(), [$article->createdByAttribute => $this->guidAttribute])->inverseOf('user');
     }
+    
+    
+    
+    /**
+     * Friendly to IDE.
+     * @return \vistart\Models\queries\BaseUserQuery
+     */
+    public static function find() {
+        return parent::find();
+    }
 }

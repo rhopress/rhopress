@@ -26,9 +26,10 @@ class RegisterFormTest extends TestCase
     public function testNew()
     {
         $registerForm = new RegisterForm();
-        $registerForm->attributes = ['username' => 'rhopress', 'email' => 'dev@rho.press', 'password' => '123456', 'confirm_password' => '123456'];
+        $username = 'rhopress' . \Yii::$app->security->generateRandomString(4);
+        $registerForm->attributes = ['username' => $username , 'email' => 'dev-register@rho.press', 'password' => '123456', 'confirm_password' => '123456'];
         $this->assertTrue($registerForm->register());
-        $user = User::find()->id('rhopress')->one();
+        $user = User::find()->id($username)->one();
         $this->assertTrue($user->deregister());
     }
 }

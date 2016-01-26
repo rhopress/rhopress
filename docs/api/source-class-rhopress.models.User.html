@@ -87,6 +87,7 @@
 				<li><a href="class-rhopress.controllers.article.ViewAction.html">rhopress\controllers\article\ViewAction</a></li>
 				<li><a href="class-rhopress.controllers.ArticleController.html">rhopress\controllers\ArticleController</a></li>
 				<li><a href="class-rhopress.controllers.CommentController.html">rhopress\controllers\CommentController</a></li>
+				<li><a href="class-rhopress.controllers.UserController.html">rhopress\controllers\UserController</a></li>
 				<li><a href="class-rhopress.models.Article.html">rhopress\models\Article</a></li>
 				<li><a href="class-rhopress.models.ArticleQuery.html">rhopress\models\ArticleQuery</a></li>
 				<li><a href="class-rhopress.models.Comment.html">rhopress\models\Comment</a></li>
@@ -238,8 +239,18 @@
 </span><span id="122" class="l"><a href="#122">122 </a>        <span class="php-var">$article</span> = Article::buildNoInitModel();
 </span><span id="123" class="l"><a href="#123">123 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;hasMany(Article::className(), [<span class="php-var">$article</span>-&gt;createdByAttribute =&gt; <span class="php-var">$this</span>-&gt;guidAttribute])-&gt;inverseOf(<span class="php-quote">'user'</span>);
 </span><span id="124" class="l"><a href="#124">124 </a>    }
-</span><span id="125" class="l"><a href="#125">125 </a>}
-</span><span id="126" class="l"><a href="#126">126 </a></span></code></pre>
+</span><span id="125" class="l"><a href="#125">125 </a>    
+</span><span id="126" class="l"><a href="#126">126 </a>    
+</span><span id="127" class="l"><a href="#127">127 </a>    
+</span><span id="128" class="l"><a href="#128">128 </a>    <span class="php-comment">/**
+</span></span><span id="129" class="l"><a href="#129">129 </a><span class="php-comment">     * Friendly to IDE.
+</span></span><span id="130" class="l"><a href="#130">130 </a><span class="php-comment">     * @return \vistart\Models\queries\BaseUserQuery
+</span></span><span id="131" class="l"><a href="#131">131 </a><span class="php-comment">     */</span>
+</span><span id="132" class="l"><a href="#132">132 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> find() {
+</span><span id="133" class="l"><a href="#133">133 </a>        <span class="php-keyword1">return</span> parent::find();
+</span><span id="134" class="l"><a href="#134">134 </a>    }
+</span><span id="135" class="l"><a href="#135">135 </a>}
+</span><span id="136" class="l"><a href="#136">136 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
@@ -247,6 +258,6 @@
 	</div>
 </div>
 <script src="resources/combined.js?817463edc1862b5d012a0395fdd108ec176c2d33"></script>
-<script src="elementlist.js?de16ef340df7b0af12f7d8e04768eb2dc46913ec"></script>
+<script src="elementlist.js?96a2040a7791f52edecf673deedf57fac180772c"></script>
 </body>
 </html>

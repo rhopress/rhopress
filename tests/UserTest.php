@@ -44,7 +44,8 @@ class UserTest extends TestCase
         } else {
             $this->assertTrue(true);
         }
-        $user = new User(['id' => 'rhopress', 'password' => '123456']);
+        $id = 'rhopress' . \Yii::$app->security->generateRandomString(4);
+        $user = new User(['id' => $id, 'password' => '123456']);
         $result = $user->register();
         if ($result === true) {
             $this->assertTrue($result);
@@ -54,7 +55,7 @@ class UserTest extends TestCase
             $this->fail();
         }
 
-        $user = new User(['id' => 'rhopress', 'password' => '123456']);
+        $user = new User(['id' => $id, 'password' => '123456']);
         $result = $user->register();
         if ($result === true) {
             $this->fail(); // ID existed.
@@ -62,7 +63,7 @@ class UserTest extends TestCase
             $this->assertTrue(true);
         }
 
-        $user = User::find()->id('rhopress')->one();
+        $user = User::find()->id($id)->one();
         $this->assertNotNull($user);
         $this->assertInstanceOf(User::className(), $user);
         $this->assertTrue($user->deregister());
@@ -73,6 +74,7 @@ class UserTest extends TestCase
         if (empty($id)) {
             $id = 'rhopress';
         }
+        $id .= \Yii::$app->security->generateRandomString(4);
         $user = User::find()->id($id)->one();
         if ($user) {
             return $user;
@@ -89,15 +91,17 @@ class UserTest extends TestCase
     public function testRegisterEmail()
     {
         $user = self::prepareUser();
-        $email = $user->create(Email::className(), ['email' => 'dev@rho.press']);
+        $emailAddress = 'dev-test@rho.press';
+        $email = $user->create(Email::className(), ['email' => $emailAddress]);
         $this->assertTrue($user->register([$email]));
-        $user = User::find()->id('rhopress')->one();
+        $id = $user->id;
+        $user = User::find()->id($id)->one();
         $this->assertInstanceOf(User::className(), $user);
         $email = $user->emails[0];
         $this->assertInstanceOf(Email::className(), $email);
         $this->assertEquals($user, $email->user);
         $this->assertTrue($user->deregister());
-        $email = Email::find()->content('dev@rho.press')->one();
+        $email = Email::find()->content($emailAddress)->one();
         $this->assertNull($email);
     }
 
@@ -116,7 +120,8 @@ class UserTest extends TestCase
             var_dump($profile->errors);
             $this->fail();
         }
-        $user = User::find()->id('rhopress')->one();
+        $id = $user->id;
+        $user = User::find()->id($id)->one();
         $profile = $user->profile;
         $this->assertInstanceOf(Profile::className(), $profile);
         $this->assertEquals($user, $profile->user);

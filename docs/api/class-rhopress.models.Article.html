@@ -154,7 +154,7 @@ vistart\Models\models\BaseBlameableModel
 				vistart <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;">&#105;&#x40;&#118;i&#x73;&#116;&#x61;&#x72;&#116;&#x2e;&#110;&#97;&#x6d;&#101;</a><br>
 				<b>Since:</b>
 				1.0<br>
-			<b>Located at</b> <a href="source-class-rhopress.models.Article.html#19-142" title="Go to source code">models/Article.php</a>
+			<b>Located at</b> <a href="source-class-rhopress.models.Article.html#19-199" title="Go to source code">models/Article.php</a>
 		<br>
 	</div>
 
@@ -203,7 +203,7 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_init">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#55-60" title="Go to source code">init</a>( )</code>
+			<code><a href="source-class-rhopress.models.Article.html#66-71" title="Go to source code">init</a>( )</code>
 
 			<div class="description short">
 				
@@ -232,7 +232,7 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_rules">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#62-77" title="Go to source code">rules</a>( )</code>
+			<code><a href="source-class-rhopress.models.Article.html#73-88" title="Go to source code">rules</a>( )</code>
 
 			<div class="description short">
 				
@@ -264,7 +264,7 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_attributeLabels">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#79-90" title="Go to source code">attributeLabels</a>( )</code>
+			<code><a href="source-class-rhopress.models.Article.html#90-101" title="Go to source code">attributeLabels</a>( )</code>
 
 			<div class="description short">
 				
@@ -293,7 +293,7 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_onSlugName">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#92-102" title="Go to source code">onSlugName</a>( <span>yii\base\Event <var>$event</var></span> )</code>
+			<code><a href="source-class-rhopress.models.Article.html#103-113" title="Go to source code">onSlugName</a>( <span>yii\base\ModelEvent <var>$event</var></span> )</code>
 
 			<div class="description short">
 				
@@ -316,6 +316,84 @@ vistart\Models\models\BaseBlameableModel
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="generateNewSlugName" id="_generateNewSlugName">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_generateNewSlugName">#</a>
+			<code><a href="source-class-rhopress.models.Article.html#115-134" title="Go to source code">generateNewSlugName</a>( <span>string <var>$title</var></span> )</code>
+
+			<div class="description short">
+				<p>Generate new slug name according to article title or custom name. If
+provided string existed, it will attach next order automatically.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Generate new slug name according to article title or custom name. If
+provided string existed, it will attach next order automatically.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$title</var></dt>
+						<dd>article title or custom name.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string<br>new slug name.
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="checkSlugNameExists" id="_checkSlugNameExists">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_checkSlugNameExists">#</a>
+			<code><a href="source-class-rhopress.models.Article.html#136-144" title="Go to source code">checkSlugNameExists</a>( <span>string <var>$name</var></span> )</code>
+
+			<div class="description short">
+				<p>Check whether slug name exists.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Check whether slug name exists.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd>slug name to be checked.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean<br>Whether the slug name exists.
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="createComment" id="_createComment">
 
 			<td class="attributes"><code>
@@ -327,7 +405,7 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createComment">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#104-122" title="Go to source code">createComment</a>( <span>array <var>$config</var> = []</span> )</code>
+			<code><a href="source-class-rhopress.models.Article.html#146-164" title="Go to source code">createComment</a>( <span>array <var>$config</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Create new comment.</p>
@@ -365,14 +443,14 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getComments">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#124-131" title="Go to source code">getComments</a>( )</code>
+			<code><a href="source-class-rhopress.models.Article.html#166-173" title="Go to source code">getComments</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Get all comments belong to article.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get all comments belong to article.</p>
 
 
 
@@ -391,24 +469,28 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="attributes"><code>
 				 public 
-				
+				<code><a href="class-rhopress.models.CommentQuery.html">rhopress\models\CommentQuery</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getChildComments">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#133-136" title="Go to source code">getChildComments</a>( )</code>
+			<code><a href="source-class-rhopress.models.Article.html#175-182" title="Go to source code">getChildComments</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Get all child comments, not grandchild ones.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get all child comments, not grandchild ones.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-rhopress.models.CommentQuery.html">rhopress\models\CommentQuery</a></code>
+					</div>
 
 
 
@@ -427,7 +509,7 @@ vistart\Models\models\BaseBlameableModel
 
 			<td class="name"><div>
 			<a class="anchor" href="#_t">#</a>
-			<code><a href="source-class-rhopress.models.Article.html#138-141" title="Go to source code">t</a>( <span> <var>$message</var></span>, <span> <var>$params</var> = []</span>, <span> <var>$language</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-rhopress.models.Article.html#184-190" title="Go to source code">t</a>( <span> <var>$message</var></span>, <span> <var>$params</var> = []</span>, <span> <var>$language</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -438,6 +520,42 @@ vistart\Models\models\BaseBlameableModel
 
 
 
+
+
+					<h4>Inheritdoc</h4>
+					<div class="list">
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="find" id="_find">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-rhopress.models.ArticleQuery.html">rhopress\models\ArticleQuery</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_find">#</a>
+			<code><a href="source-class-rhopress.models.Article.html#192-198" title="Go to source code">find</a>( )</code>
+
+			<div class="description short">
+				<p>Friendly to IDE.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Friendly to IDE.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-rhopress.models.ArticleQuery.html">rhopress\models\ArticleQuery</a></code>
+					</div>
 
 
 
@@ -621,6 +739,37 @@ vistart\Models\models\BaseBlameableModel
 					<code>[
     <span class="php-num">0</span> =&gt; self::COMMENT_OPEN,
     <span class="php-num">1</span> =&gt; self::COMMENT_CLOSE,
+]</code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="reservedNames" id="$reservedNames">
+			<td class="attributes"><code>
+				public static 
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-rhopress.models.Article.html#55-64" title="Go to source code"><var>$reservedNames</var></a>
+
+				<div class="description short">
+					<p>All reserved names should be avoided for article alias.</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>All reserved names should be avoided for article alias.</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$reservedNames" class="anchor">#</a>
+					<code>[
+    <span class="php-quote">'new'</span>,
+    <span class="php-quote">'login'</span>,
+    <span class="php-quote">'logout'</span>,
+    <span class="php-quote">'reg'</span>,
+    <span class="php-quote">'users'</span>,
 ]</code>
 				</div>
 			</td>

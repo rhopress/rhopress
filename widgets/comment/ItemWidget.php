@@ -35,6 +35,6 @@ class ItemWidget extends \yii\base\Widget
 
     public function run()
     {
-        return $this->render('item', ['comment' => $this->comment, 'newComment' => $this->newComment instanceof Comment ? $this->newComment : $this->comment->createComment()]);
+        return $this->render('item', ['comment' => $this->comment, 'newComment' => \Yii::$app->user->isGuest ? null : ($this->newComment instanceof Comment ? $this->newComment : $this->comment->createComment())]);
     }
 }

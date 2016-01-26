@@ -12,6 +12,6 @@
 /* @var $this yii\web\View */
 $this->title = 'ρ.press lite';
 ?>
-<?php $this->beginContent('@app/views/layouts/main.php') ?>
+<?php $this->beginContent('@app/views/layouts/site/main.php') ?>
 <?= $content ?>
 <?php $this->endContent() ?>

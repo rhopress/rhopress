@@ -27,7 +27,7 @@ class ViewAction extends \yii\base\Action
     public function run($id)
     {
         $article = ArticleController::getArticle($id);
-        $comment = $article->createComment();
+        $comment = Yii::$app->user->isGuest ? null : $article->createComment();
         return $this->controller->render('view', ['article' => $article, 'newComment' => $comment]);
     }
 }

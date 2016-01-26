@@ -44,7 +44,7 @@ class RegisterForm extends \yii\base\Model
             return false;
         }
         $user = new User(['username' => $this->username, 'password' => $this->password]);
-        $profile = $user->create(Profile::className(), ['nickname' => $this->username]);
+        $profile = $user->create(Profile::className(), ['nickname' => $this->username, 'display_name' => $this->username]);
         $email = $user->create(Email::className(), ['email' => $this->email]);
         return $user->register([$profile, $email]);
     }

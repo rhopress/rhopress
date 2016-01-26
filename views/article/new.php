@@ -15,16 +15,12 @@ use rhopress\Module;
 
 /* @var $article rhopress\models\Article */
 ?>
-<section id="post-new">
-    <div class="box">
         <?php $form = ActiveForm::begin(); ?>
         <?= $form->field($article, 'title', ['template' => "{input}\n{hint}\n{error}"]) ?>
         <?= $form->field($article, 'content', ['template' => "{input}\n{hint}\n{error}"])->textarea(['rows' => 2]) ?> 
         <hr>
         <div class="form-group">
-            <?= Html::submitButton('<span class="glyphicon glyphicon-plus"></span> ' . Module::t('views/article', 'Add'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('<span class="glyphicon glyphicon-plus"></span> ' . Module::t('views/article', 'Publish'), ['class' => 'btn btn-primary']) ?>
             <?= Html::resetButton('<span class="glyphicon glyphicon-refresh"></span> ' . Module::t('views/article', 'Reset'), ['class' => 'btn btn-danger']) ?>
         </div>
         <?php ActiveForm::end(); ?>
-    </div>
-</section>

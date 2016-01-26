@@ -20,14 +20,15 @@ use rhopress\widgets\comment\NewWidget;
 /* @var $newComment rhopress\models\Comment */
 $formatter = Yii::$app->formatter;
 ?>
-<section id="post-view">
-    <div class="box">
-        <h2 style="padding: 0; font-family: Noto-Serif; margin-bottom: 12px"><?= Html::encode($article->title) ?></h2>
+        <h2 style="padding: 0; font-family: Noto Serif; margin-bottom: 12px"><?= Html::encode($article->title) ?></h2>
         <br/>
         <?php
         $createdAtAttribute = $article->createdAtAttribute;
         echo $article->user->profile->display_name . ' ' . Module::t('views/article', 'Published At') . ' ' . $formatter->asDatetime($article->$createdAtAttribute, 'php:Y F d, l, H:i:s');
         ?>
+        <?php if (!Yii::$app->user->isGuest && $article->user->guid == Yii::$app->user->identity->guid) : ?>&nbsp;
+        <?= Html::a(Module::t('views/article', 'Delete'), Url::to(['article/delete', 'id' => $article->id]), ['data-method' => 'post', 'class' => 'btn btn-danger btn-sm']); ?>
+        <?php endif; ?>
         <hr/>
 
         <div class="entry-content">
@@ -42,10 +43,6 @@ $formatter = Yii::$app->formatter;
             ?>
         <?php endif; ?>
         <hr/>
+        <?php if ($newComment): ?>
         <?= NewWidget::widget(['comment' => $newComment]) ?>
-        <?php if ($article->user->guid == Yii::$app->user->identity->guid) : ?>
-            <hr/>
-            <?= Html::a(Module::t('views/article', 'Delete'), Url::to(['article/delete', 'id' => $article->id]), ['data-method' => 'post', 'class' => 'btn btn-danger']); ?>
         <?php endif; ?>
-    </div>
-</section>

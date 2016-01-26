@@ -78,4 +78,12 @@ class Comment extends Post
             'update_time' => Module::t('models', 'Last Updated At'),
         ];
     }
+    
+    /**
+     * Friendly to IDE.
+     * @return CommentQuery
+     */
+    public static function find() {
+        return parent::find();
+    }
 }

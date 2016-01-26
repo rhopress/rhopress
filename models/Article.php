@@ -51,6 +51,17 @@ class Article extends Post
         0 => self::COMMENT_OPEN,
         1 => self::COMMENT_CLOSE,
     ];
+    
+    /**
+     * @var array All reserved names should be avoided for article alias.
+     */
+    public static $reservedNames = [
+        'new',
+        'login',
+        'logout',
+        'reg',
+        'users',
+    ];
 
     public function init()
     {
@@ -91,14 +102,45 @@ class Article extends Post
 
     /**
      * 
-     * @param \yii\base\Event $event
+     * @param \yii\base\ModelEvent $event
      */
     public function onSlugName($event)
     {
         $sender = $event->sender;
         if (empty($sender->name) && !empty($sender->title)) {
-            $sender->name = Inflector::slug($sender->title);
+            $sender->name = static::generateNewSlugName($sender->title);
         }
+    }
+
+    /**
+     * Generate new slug name according to article title or custom name. If
+     * provided string existed, it will attach next order automatically.
+     * @param string $title article title or custom name.
+     * @return string new slug name.
+     */
+    public static function generateNewSlugName($title)
+    {
+        $counter = 0;
+        $suffix = '';
+        do {
+            $name = Inflector::slug($title);
+            if ($counter) {
+                $suffix = '-' . $counter;
+            }
+            $name .= $suffix;
+            $counter++;
+        } while (static::checkSlugNameExists($name));
+        return $name;
+    }
+
+    /**
+     * Check whether slug name exists.
+     * @param string $name slug name to be checked.
+     * @return boolean Whether the slug name exists.
+     */
+    public static function checkSlugNameExists($name)
+    {
+        return static::find()->name($name)->exists() || in_array($name, static::$reservedNames);
     }
 
     /**
@@ -122,7 +164,7 @@ class Article extends Post
     }
 
     /**
-     * 
+     * Get all comments belong to article.
      * @return \rhopress\models\CommentQuery
      */
     public function getComments()
@@ -130,13 +172,28 @@ class Article extends Post
         return $this->hasMany(Comment::className(), ['article_guid' => $this->guidAttribute])->inverseOf('article');
     }
 
+    /**
+     * Get all child comments, not grandchild ones.
+     * @return \rhopress\models\CommentQuery
+     */
     public function getChildComments()
     {
         return $this->getComments()->parentComment();
     }
 
+    /**
+     * @inheritdoc
+     */
     public static function t($message, $params = [], $language = null)
     {
         return Module::t('models/article', $message, $params, $language);
+    }
+    
+    /**
+     * Friendly to IDE.
+     * @return ArticleQuery
+     */
+    public static function find() {
+        return parent::find();
     }
 }

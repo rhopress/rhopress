@@ -87,6 +87,7 @@
 				<li><a href="class-rhopress.controllers.article.ViewAction.html">rhopress\controllers\article\ViewAction</a></li>
 				<li><a href="class-rhopress.controllers.ArticleController.html">rhopress\controllers\ArticleController</a></li>
 				<li><a href="class-rhopress.controllers.CommentController.html">rhopress\controllers\CommentController</a></li>
+				<li><a href="class-rhopress.controllers.UserController.html">rhopress\controllers\UserController</a></li>
 				<li><a href="class-rhopress.models.Article.html">rhopress\models\Article</a></li>
 				<li><a href="class-rhopress.models.ArticleQuery.html">rhopress\models\ArticleQuery</a></li>
 				<li><a href="class-rhopress.models.Comment.html">rhopress\models\Comment</a></li>
@@ -154,24 +155,25 @@
 </span><span id="38" class="l"><a href="#38">38 </a>                <span class="php-quote">'&lt;id:\d+&gt;/comments'</span> =&gt; <span class="php-var">$this</span>-&gt;id . <span class="php-quote">'/comment/list'</span>,
 </span><span id="39" class="l"><a href="#39">39 </a>                <span class="php-quote">'&lt;id:\d+&gt;/comment/&lt;cid:\w+&gt;/review'</span> =&gt; <span class="php-var">$this</span>-&gt;id . <span class="php-quote">'/comment/review'</span>,
 </span><span id="40" class="l"><a href="#40">40 </a>                <span class="php-quote">'&lt;id:\d+&gt;/comment/&lt;cid:\w+&gt;/delete'</span> =&gt; <span class="php-var">$this</span>-&gt;id . <span class="php-quote">'/comment/delete'</span>,
-</span><span id="41" class="l"><a href="#41">41 </a>                <span class="php-quote">'&lt;id:\w+&gt;'</span> =&gt; <span class="php-var">$this</span>-&gt;id . <span class="php-quote">'/article/viewbyname'</span>,
-</span><span id="42" class="l"><a href="#42">42 </a>            ];
-</span><span id="43" class="l"><a href="#43">43 </a>            <span class="php-var">$app</span>-&gt;getUrlManager()-&gt;addRules(<span class="php-var">$rules</span>);
-</span><span id="44" class="l"><a href="#44">44 </a>
-</span><span id="45" class="l"><a href="#45">45 </a>            <span class="php-var">$app</span>-&gt;i18n-&gt;translations[<span class="php-quote">'rhopress*'</span>] = [
-</span><span id="46" class="l"><a href="#46">46 </a>                <span class="php-quote">'class'</span> =&gt; <span class="php-quote">'yii\i18n\PhpMessageSource'</span>,
-</span><span id="47" class="l"><a href="#47">47 </a>                <span class="php-quote">'sourceLanguage'</span> =&gt; <span class="php-quote">'en-US'</span>,
-</span><span id="48" class="l"><a href="#48">48 </a>                <span class="php-quote">'basePath'</span> =&gt; <span class="php-quote">'@rhopress/messages'</span>,
-</span><span id="49" class="l"><a href="#49">49 </a>            ];
-</span><span id="50" class="l"><a href="#50">50 </a>        }
-</span><span id="51" class="l"><a href="#51">51 </a>    }
-</span><span id="52" class="l"><a href="#52">52 </a>
-</span><span id="53" class="l"><a href="#53">53 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> t(<span class="php-var">$category</span>, <span class="php-var">$message</span>, <span class="php-var">$params</span> = [], <span class="php-var">$language</span> = <span class="php-keyword1">null</span>)
-</span><span id="54" class="l"><a href="#54">54 </a>    {
-</span><span id="55" class="l"><a href="#55">55 </a>        <span class="php-keyword1">return</span> \Yii::t(<span class="php-quote">'rhopress/'</span> . <span class="php-var">$category</span>, <span class="php-var">$message</span>, <span class="php-var">$params</span>, <span class="php-var">$language</span>);
-</span><span id="56" class="l"><a href="#56">56 </a>    }
-</span><span id="57" class="l"><a href="#57">57 </a>}
-</span><span id="58" class="l"><a href="#58">58 </a></span></code></pre>
+</span><span id="41" class="l"><a href="#41">41 </a>                <span class="php-quote">'users'</span> =&gt; <span class="php-var">$this</span>-&gt;id . <span class="php-quote">'/user/index'</span>,
+</span><span id="42" class="l"><a href="#42">42 </a>                <span class="php-quote">'&lt;id:\w+(-\w+)*&gt;'</span> =&gt; <span class="php-var">$this</span>-&gt;id . <span class="php-quote">'/article/view-by-name'</span>,
+</span><span id="43" class="l"><a href="#43">43 </a>            ];
+</span><span id="44" class="l"><a href="#44">44 </a>            <span class="php-var">$app</span>-&gt;getUrlManager()-&gt;addRules(<span class="php-var">$rules</span>);
+</span><span id="45" class="l"><a href="#45">45 </a>
+</span><span id="46" class="l"><a href="#46">46 </a>            <span class="php-var">$app</span>-&gt;i18n-&gt;translations[<span class="php-quote">'rhopress*'</span>] = [
+</span><span id="47" class="l"><a href="#47">47 </a>                <span class="php-quote">'class'</span> =&gt; <span class="php-quote">'yii\i18n\PhpMessageSource'</span>,
+</span><span id="48" class="l"><a href="#48">48 </a>                <span class="php-quote">'sourceLanguage'</span> =&gt; <span class="php-quote">'en-US'</span>,
+</span><span id="49" class="l"><a href="#49">49 </a>                <span class="php-quote">'basePath'</span> =&gt; <span class="php-quote">'@rhopress/messages'</span>,
+</span><span id="50" class="l"><a href="#50">50 </a>            ];
+</span><span id="51" class="l"><a href="#51">51 </a>        }
+</span><span id="52" class="l"><a href="#52">52 </a>    }
+</span><span id="53" class="l"><a href="#53">53 </a>
+</span><span id="54" class="l"><a href="#54">54 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> t(<span class="php-var">$category</span>, <span class="php-var">$message</span>, <span class="php-var">$params</span> = [], <span class="php-var">$language</span> = <span class="php-keyword1">null</span>)
+</span><span id="55" class="l"><a href="#55">55 </a>    {
+</span><span id="56" class="l"><a href="#56">56 </a>        <span class="php-keyword1">return</span> \Yii::t(<span class="php-quote">'rhopress/'</span> . <span class="php-var">$category</span>, <span class="php-var">$message</span>, <span class="php-var">$params</span>, <span class="php-var">$language</span>);
+</span><span id="57" class="l"><a href="#57">57 </a>    }
+</span><span id="58" class="l"><a href="#58">58 </a>}
+</span><span id="59" class="l"><a href="#59">59 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
@@ -179,6 +181,6 @@
 	</div>
 </div>
 <script src="resources/combined.js?817463edc1862b5d012a0395fdd108ec176c2d33"></script>
-<script src="elementlist.js?de16ef340df7b0af12f7d8e04768eb2dc46913ec"></script>
+<script src="elementlist.js?96a2040a7791f52edecf673deedf57fac180772c"></script>
 </body>
 </html>

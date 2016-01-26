@@ -9,3 +9,9 @@
  * @copyright Copyright (c) 2016 vistart
  * @license http://vistart.name/license/
  */
+/* @var $this yii\web\View */
+$this->title = 'Users';
+?>
+<?php $this->beginContent('@app/views/layouts/site/main.php') ?>
+<?= $content ?>
+<?php $this->endContent() ?>

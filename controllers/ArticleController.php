@@ -62,6 +62,9 @@ class ArticleController extends \yii\web\Controller
             'view' => [
                 'class' => 'rhopress\controllers\article\ViewAction',
             ],
+            'view-by-name' => [
+                'class' => 'rhopress\controllers\article\ViewAction',
+            ],
         ];
     }
 
@@ -75,7 +78,7 @@ class ArticleController extends \yii\web\Controller
         $article = new Article();
         if ($article->load(Yii::$app->request->post())) {
             if ($article->save()) {
-                return $this->redirect(['article/view', 'id' => $article->id]);
+                return $this->redirect(['article/view-by-name', 'id' => $article->name]);
             }
         }
         return $this->render('new', ['article' => $article]);
@@ -91,6 +94,15 @@ class ArticleController extends \yii\web\Controller
             throw new \yii\web\BadRequestHttpException('Article Delete Failed.');
         }
         return $this->goHome();
+    }
+
+    /**
+     * only used for testing. removed before releasing.
+     * @param string $p
+     */
+    public function actionTest($p)
+    {
+        
     }
 
     /**

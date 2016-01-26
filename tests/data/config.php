@@ -24,7 +24,7 @@
 $config = [
     'databases' => [
         'mysql' => [
-            'dsn' => 'mysql:host=localhost;dbname=rhopress',
+            'dsn' => 'mysql:host=localhost;dbname=rhopress-test',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',

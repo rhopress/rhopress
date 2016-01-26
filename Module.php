@@ -38,7 +38,8 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
                 '<id:\d+>/comments' => $this->id . '/comment/list',
                 '<id:\d+>/comment/<cid:\w+>/review' => $this->id . '/comment/review',
                 '<id:\d+>/comment/<cid:\w+>/delete' => $this->id . '/comment/delete',
-                '<id:\w+>' => $this->id . '/article/viewbyname',
+                'users' => $this->id . '/user/index',
+                '<id:\w+(-\w+)*>' => $this->id . '/article/view-by-name',
             ];
             $app->getUrlManager()->addRules($rules);
 

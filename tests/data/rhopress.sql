@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `rhopress`
 --
-CREATE DATABASE IF NOT EXISTS `rhopress` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `rhopress-test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `rhopress`;
 
 -- --------------------------------------------------------

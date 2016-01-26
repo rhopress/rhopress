@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2016-01-26 00:53:21
+-- Generation Time: 2016-01-27 00:14:58
 -- 服务器版本： 5.7.10
 -- PHP Version: 5.6.17
 
@@ -17,18 +17,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rhopress`
+-- Database: `rhopress-test`
 --
-CREATE DATABASE IF NOT EXISTS `rhopress-test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `rhopress`;
+CREATE DATABASE IF NOT EXISTS `rhopress-test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `rhopress-test`;
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `article`
 --
--- 创建时间： 2016-01-25 16:52:17
--- 最后更新： 2016-01-25 16:43:25
+-- 创建时间： 2016-01-26 13:17:01
+-- 最后更新： 2016-01-26 15:54:56
 --
 
 DROP TABLE IF EXISTS `article`;
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   PRIMARY KEY (`guid`),
   UNIQUE KEY `post_id_unique` (`id`) USING BTREE,
   UNIQUE KEY `post_name_unique` (`name`) USING BTREE,
-  KEY `user_article_fkey` (`user_guid`)
+  KEY `user_article_fkey` (`user_guid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 -- 表的结构 `comment`
 --
--- 创建时间： 2016-01-25 16:52:26
--- 最后更新： 2016-01-25 16:33:58
+-- 创建时间： 2016-01-26 13:17:01
+-- 最后更新： 2016-01-26 13:18:28
 --
 
 DROP TABLE IF EXISTS `comment`;
@@ -79,9 +79,9 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `create_time` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   PRIMARY KEY (`guid`),
   UNIQUE KEY `article_comment_id_unique` (`id`,`article_guid`) USING BTREE,
-  KEY `user_comment_guid_fkey` (`user_guid`),
-  KEY `article_comment_guid_fkey` (`article_guid`),
-  KEY `parent_guid` (`parent_guid`)
+  KEY `user_comment_guid_fkey` (`user_guid`) USING BTREE,
+  KEY `article_comment_guid_fkey` (`article_guid`) USING BTREE,
+  KEY `parent_guid` (`parent_guid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -89,8 +89,8 @@ CREATE TABLE IF NOT EXISTS `comment` (
 --
 -- 表的结构 `email`
 --
--- 创建时间： 2016-01-25 16:52:35
--- 最后更新： 2016-01-25 16:43:39
+-- 创建时间： 2016-01-26 13:17:01
+-- 最后更新： 2016-01-26 15:55:00
 --
 
 DROP TABLE IF EXISTS `email`;
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `email` (
   `permission` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   PRIMARY KEY (`guid`),
   UNIQUE KEY `user_email_id_unique` (`id`,`user_guid`) USING BTREE,
-  KEY `user_email_guid_fkey` (`user_guid`)
+  KEY `user_email_guid_fkey` (`user_guid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -113,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `email` (
 --
 -- 表的结构 `profile`
 --
--- 创建时间： 2016-01-25 16:52:44
--- 最后更新： 2016-01-25 16:43:39
+-- 创建时间： 2016-01-26 13:17:01
+-- 最后更新： 2016-01-26 15:55:00
 --
 
 DROP TABLE IF EXISTS `profile`;
@@ -135,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `profile` (
 --
 -- 表的结构 `user`
 --
--- 创建时间： 2016-01-25 16:52:53
--- 最后更新： 2016-01-25 16:43:39
+-- 创建时间： 2016-01-26 13:17:01
+-- 最后更新： 2016-01-26 15:55:00
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -168,26 +168,26 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 限制表 `article`
 --
 ALTER TABLE `article`
-  ADD CONSTRAINT `user_article_fkey` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `article_comment_guid_fkey` FOREIGN KEY (`article_guid`) REFERENCES `article` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_comment_guid_fkey` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`article_guid`) REFERENCES `article` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `email`
 --
 ALTER TABLE `email`
-  ADD CONSTRAINT `user_email_guid_fkey` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `email_ibfk_1` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `profile`
 --
 ALTER TABLE `profile`
-  ADD CONSTRAINT `profile_guid_fkey` FOREIGN KEY (`guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,7 +3,7 @@
     "description": "The Base Components of Rho Press",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","rhopress"],
-    "license": "AGPL",
+    "license": "AGPL-3.0",
     "authors": [
         {
             "name": "vistart",
